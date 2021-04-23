@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import { App } from './App';
+import { Application } from './Application';
 
 import './app.scss';
 
-ReactDOM.render(<App />, document.getElementById('app-root'));
+const element = document.getElementById('app-root');
+if (element) {
+  const app = new Application(element);
+  app.init();
+}
