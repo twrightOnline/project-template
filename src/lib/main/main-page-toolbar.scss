@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
-
+  border-bottom: 1px solid lightgray;
   &__top {
     display: flex;
     justify-content: space-evenly;
@@ -27,8 +27,11 @@
   &__logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 20%;
+    justify-content: flex-start;
+    width: 40%;
+    background: lightgray;
+    border-bottom-right-radius: 100%;
+    padding-left: 50px;
   }
 
   &__settings {
@@ -50,6 +53,6 @@
   }
 
   &__tab {
-    padding-left: 50px;
+    margin-left: 50px;
   }
 }
