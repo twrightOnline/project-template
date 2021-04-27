@@ -1,6 +1,7 @@
-import { Application } from './Application';
+import { Application } from './lib/main/Application';
 
 import './app.scss';
+import './lib/main/index.scss';
 
 const element = document.getElementById('app-root');
 if (element) {

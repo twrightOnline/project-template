@@ -1,10 +1,14 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import { ApplicationState, App } from './ApplicationState';
-import { RootState } from './RootState';
+import { ApplicationState, App } from '../state/ApplicationState';
+import { RootState } from '../state/RootState';
 import ReactDOM from 'react-dom';
 import { MainPageToolbar } from './MainPageToolbar';
-import { TodoPageComponent } from './TodoComponent';
+import { TodoPageComponent } from '../../applications/todo/TodoComponent';
+// import 'normalize.css/normalize.css';
+// import '@blueprintjs/core/dist/blueprint.css';
+
+// import './index.scss';
 
 interface Props {
   rootState: RootState;
@@ -27,9 +31,11 @@ export class ApplicationBody extends React.PureComponent<Props> {
     const rs = this.props.rootState;
     switch (appState.currentPage) {
       case App.NONE:
-        <div>No page selected</div>;
+        return <div>No page selected</div>;
       case App.TODO_PAGE:
         return <TodoPageComponent todoState={rs.todoState} />;
+      case App.FOLDER_PAGE:
+        return <div>This is the folder page</div>;
     }
     return;
   }

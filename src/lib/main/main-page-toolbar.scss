@@ -1,0 +1,55 @@
+.toolbar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &__top {
+    display: flex;
+    justify-content: space-evenly;
+    height: 5vh;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 50%;
+    .bp3-tab {
+      font-size: 1.4em;
+    }
+  }
+}
+
+.toolbar-top {
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+  }
+
+  &__settings {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+  }
+}
+
+.toolbar-bottom {
+  &__nav-tabs {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+  }
+
+  &__tab {
+    padding-left: 50px;
+  }
+}
