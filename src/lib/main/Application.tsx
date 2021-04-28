@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import { ApplicationState, App } from '../state/ApplicationState';
-import { RootState } from '../state/RootState';
+import { ApplicationState, App } from '../../state/ApplicationState';
+import { RootState } from '../../state/RootState';
 import ReactDOM from 'react-dom';
 import { MainPageToolbar } from './MainPageToolbar';
 import { TodoPageComponent } from '../../applications/todo/TodoComponent';
@@ -37,7 +37,6 @@ export class ApplicationBody extends React.PureComponent<Props> {
       case App.FOLDER_PAGE:
         return <div>This is the folder page</div>;
     }
-    return;
   }
 }
 

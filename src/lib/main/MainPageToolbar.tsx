@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Tabs, Tab } from '@blueprintjs/core';
-import { App, ApplicationState } from '../state/ApplicationState';
+import { App, ApplicationState } from '../../state/ApplicationState';
 
 import './main-page-toolbar.scss';
 

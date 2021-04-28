@@ -28,6 +28,7 @@
     "react": "^16.14.0",
     "react-color": "^2.18.1",
     "react-dom": "^16.14.0",
+    "react-resize-panel": "^0.3.5",
     "react-split-pane": "^0.1.92",
     "save-dev": "0.0.1-security",
     "tslint": "^6.1.2"
