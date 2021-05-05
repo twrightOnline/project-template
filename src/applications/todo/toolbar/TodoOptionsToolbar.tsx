@@ -1,6 +1,6 @@
 import React from 'react';
 import { TodoState } from '../TodoState';
-import { Button, Dialog, Classes, InputGroup, MenuItem } from '@blueprintjs/core';
+import { Button, Dialog, Classes, InputGroup } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
@@ -16,7 +16,6 @@ const UrgencySelect = Select.ofType<TodoUrgency>();
 export class TodoOptionsToolbar extends React.Component<TOTProps> {
   @observable private isOpen = false;
   public render() {
-    const { todoTableState } = this.props.todoState;
     return (
       <div className='todo__options-toolbar'>
         <Button onClick={() => this.handleOpen()}>Create new</Button>
@@ -48,28 +47,24 @@ export class TodoOptionsToolbar extends React.Component<TOTProps> {
         />
         <UrgencySelect
           items={Object.values(TodoUrgency)}
-          onItemSelect={() => undefined}
-          itemRenderer={(todo) => (
-            <MenuItem
-              label={todo}
-              onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
-                tts.setUrgency(e.currentTarget.nodeValue)
-              }
-            />
-          )}
-          // activeItem={tts.urgency}
+          onItemSelect={(item: TodoUrgency) => undefined}
+          itemRenderer={(todo) => <div onClick={() => tts.setUrgency(todo)}>{todo}</div>}
+          activeItem={tts.urgency}
         >
           <Button text='Select urgency' />
         </UrgencySelect>
-        <Button text='Save' onClick={() => tts.save()} />
-        <Button text='Close' onClick={() => this.handleOpen()} />
+
+        <Button text='Cancel' onClick={() => this.handleOpen()} />
+        <Button
+          text='Save'
+          onClick={() => {
+            tts.save();
+            this.handleOpen();
+          }}
+        />
       </div>
     );
   }
-
-  // private onSelect = (item: TodoUrgency) => {
-  //   // this.props.todo;
-  // };
 
   private readonly handleOpen = () => {
     this.isOpen = !this.isOpen;

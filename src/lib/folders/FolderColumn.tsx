@@ -7,7 +7,7 @@ interface FCProps {
 export class FolderColumn extends React.Component<FCProps> {
   public render() {
     const { todoState } = this.props;
-    const { folderColumnState } = todoState;
+    // const { folderColumnState } = todoState;
     return (
       <div className='folder-column'>
         {/* <FolderColumnToolbar /> */}

@@ -20,7 +20,7 @@ export class TodoTableState {
   @observable public todoList: TodoDTO[] = [];
   @observable public name = '';
   @observable public folder = '';
-  @observable public urgency: string;
+  @observable public urgency: TodoUrgency;
 
   public createNewTodo() {
     const dto = new TodoDTO();
@@ -39,7 +39,7 @@ export class TodoTableState {
     this.folder = folder;
   }
 
-  public setUrgency(urgency: string) {
+  public setUrgency(urgency: TodoUrgency) {
     this.urgency = urgency;
   }
 
