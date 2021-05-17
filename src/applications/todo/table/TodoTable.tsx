@@ -3,6 +3,8 @@ import { HTMLTable } from '@blueprintjs/core';
 import { TodoState } from '../TodoState';
 import { observer } from 'mobx-react';
 
+import { RandomId } from '../../../lib/util/RandomId';
+
 interface TTProps {
   todoState: TodoState;
 }
@@ -14,7 +16,7 @@ export class TodoTable extends React.Component<TTProps> {
     return (
       <HTMLTable bordered={true} interactive={true}>
         <thead>
-          <tr>
+          <tr key={RandomId.newId(6)}>
             <th>Name</th>
             <th>Folder</th>
             <th> Urgency</th>
@@ -23,7 +25,7 @@ export class TodoTable extends React.Component<TTProps> {
         </thead>
         <tbody>
           {tts.todoList.map((todo) => (
-            <tr>
+            <tr key={RandomId.newId(6)}>
               <td>{todo.name}</td>
               <td>{todo.folder}</td>
               <td>{todo.urgency}</td>

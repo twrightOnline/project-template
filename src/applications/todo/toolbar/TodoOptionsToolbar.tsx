@@ -5,6 +5,7 @@ import { Select } from '@blueprintjs/select';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import { TodoUrgency } from '../../../fixed/todo/TodoDTO';
+import { RandomUtil } from '../../../lib/util/RandomId';
 
 interface TOTProps {
   todoState: TodoState;
@@ -48,7 +49,11 @@ export class TodoOptionsToolbar extends React.Component<TOTProps> {
         <UrgencySelect
           items={Object.values(TodoUrgency)}
           onItemSelect={(item: TodoUrgency) => undefined}
-          itemRenderer={(todo) => <div onClick={() => tts.setUrgency(todo)}>{todo}</div>}
+          itemRenderer={(todo) => (
+            <div key={todo} onClick={() => tts.setUrgency(todo)}>
+              {todo}
+            </div>
+          )}
           activeItem={tts.urgency}
         >
           <Button text='Select urgency' />
