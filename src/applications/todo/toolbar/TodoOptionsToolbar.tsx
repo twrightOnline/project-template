@@ -5,7 +5,7 @@ import { Select } from '@blueprintjs/select';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import { TodoUrgency } from '../../../fixed/todo/TodoDTO';
-import { RandomUtil } from '../../../lib/util/RandomId';
+import { RandomId } from '../../../lib/util/RandomId';
 
 interface TOTProps {
   todoState: TodoState;

@@ -8,6 +8,6 @@ export class TodoDTO {
   public id: string;
   public name: string;
   public folder: string;
-  public completed: boolean;
+  public completed?: boolean;
   public urgency: string;
 }

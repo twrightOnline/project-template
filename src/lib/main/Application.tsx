@@ -7,16 +7,21 @@ import { MainPageToolbar } from './MainPageToolbar';
 import { TodoPageComponent } from '../../applications/todo/TodoComponent';
 
 import firebase from 'firebase/app';
-import 'firebase/database';
+import 'firebase/firestore';
 import { todoStore } from '../../store/TodoStore';
 // import 'normalize.css/normalize.css';
 // import '@blueprintjs/core/dist/blueprint.css';
 
 // import './index.scss';
 
+// const firebase = require("firebase");
+// // Required for side-effects
+// require("firebase/firestore");
+
 const firebaseConfig = {
   apiKey: 'AIzaSyADq6Tmf_IUlcjm6ap3hWhDjn9nV7hCOrk',
   authDomain: 'todo-666b7.firebaseapp.com',
+  databaseURL: 'https://todo-666b7-default-rtdb.firebaseio.com',
   projectId: 'todo-666b7',
   storageBucket: 'todo-666b7.appspot.com',
   messagingSenderId: '452593978479',

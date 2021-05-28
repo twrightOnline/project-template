@@ -2,6 +2,7 @@ import { observable } from 'mobx';
 import { TodoDTO, TodoUrgency } from '../../../fixed/todo/TodoDTO';
 import { todoActions } from '../../../lib/actions/todoActions';
 import { RandomId } from '../../../lib/util/RandomId';
+import { todoStore } from '../../../store/TodoStore';
 
 export const urgencyOptions = [
   {
@@ -23,6 +24,10 @@ export class TodoTableState {
   @observable public name = '';
   @observable public folder = '';
   @observable public urgency: TodoUrgency;
+
+  constructor() {
+    todoStore.registerListener(this.onLoad);
+  }
 
   public createNewTodo() {
     const dto = new TodoDTO();
@@ -55,4 +60,8 @@ export class TodoTableState {
       this.todoList.push(newDto);
     }
   }
+
+  private readonly onLoad = (todos: TodoDTO[]) => {
+    this.todoList = todos;
+  };
 }

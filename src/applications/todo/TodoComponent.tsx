@@ -14,7 +14,7 @@ export class TodoPageComponent extends React.Component<TProps> {
   constructor(props: TProps) {
     super(props);
     // this.props.todoState.folderColumnState = new FolderColumnState();
-    this.props.todoState.todoTableState = new TodoTableState();
+    // this.props.todoState.todoTableState = new TodoTableState();
   }
   public render() {
     const ts = this.props.todoState;
