@@ -3,10 +3,6 @@ import { TodoDTO } from '../../fixed/todo/TodoDTO';
 import { todoStore } from '../../store/TodoStore';
 import { isString } from 'util';
 
-interface DatabaseObject {
-  dto: TodoDTO;
-}
-
 class TodoActions {
   public async saveTodo(dto: TodoDTO) {
     const db = firebase.firestore();
@@ -25,6 +21,8 @@ class TodoActions {
       .catch((error) => {
         console.error(' could not save', error);
       });
+
+    // save to store?
   }
 
   public async fetchSavedTodos() {

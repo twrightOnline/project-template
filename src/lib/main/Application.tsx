@@ -9,6 +9,7 @@ import { TodoPageComponent } from '../../applications/todo/TodoComponent';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { todoStore } from '../../store/TodoStore';
+import { FolderPageComponent } from '../../applications/folder/FolderPageComponent';
 // import 'normalize.css/normalize.css';
 // import '@blueprintjs/core/dist/blueprint.css';
 
@@ -54,7 +55,7 @@ export class ApplicationBody extends React.PureComponent<Props> {
       case App.TODO_PAGE:
         return <TodoPageComponent todoState={rs.todoState} />;
       case App.FOLDER_PAGE:
-        return <div>This is the folder page</div>;
+        return <FolderPageComponent folderState={rs.folderState} />;
     }
   }
 }
