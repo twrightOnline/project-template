@@ -10,6 +10,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { todoStore } from '../../store/TodoStore';
 import { FolderPageComponent } from '../../applications/folder/FolderPageComponent';
+import { folderStore } from '../../store/FolderStore';
 // import 'normalize.css/normalize.css';
 // import '@blueprintjs/core/dist/blueprint.css';
 
@@ -69,6 +70,7 @@ export class Application {
 
   public init() {
     todoStore.load();
+    folderStore.load();
 
     ReactDOM.render(<ApplicationBody rootState={this.rootState} />, this.parent);
   }

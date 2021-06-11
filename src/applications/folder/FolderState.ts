@@ -3,13 +3,14 @@ import { FolderDTO } from '../../fixed/folder/FolderDTO';
 import { MutableFolderState } from './MutableFolderState';
 import { Folder } from '../../lib/folder/Folder';
 import { folderActions } from '../../lib/actions/folderActions';
+import { folderStore } from '../../store/FolderStore';
 
 export class FolderState {
   @observable public folders: Folder[] = [];
   @observable public mutableFolder?: MutableFolderState;
 
   constructor() {
-    // folderStore.registerListener(this.onload)
+    folderStore.registerListener(this.onLoad);
   }
 
   public addFolder() {
@@ -30,11 +31,11 @@ export class FolderState {
     }
   }
 
-  private onLoad(folderDtos: FolderDTO[]) {
-    this.folders = folderDtos.map((dto) => this.makeFolder(dto));
-  }
+  private onLoad = (folderDtos: FolderDTO[]) => {
+    this.folders = folderDtos.map((dto: FolderDTO) => this.makeFolder(dto));
+  };
 
-  private makeFolder(dto: FolderDTO) {
+  private makeFolder = (dto: FolderDTO) => {
     return new Folder(dto);
-  }
+  };
 }
